@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: instagram-dm-automation
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: INSTAGRAM_USERNAME
+        sync: false
+      - key: INSTAGRAM_PASSWORD
+        sync: false
+    buildFilter:
+      paths:
+        - src/**
+        - package.json
+        - vite.config.ts
+        - tsconfig.json
+        - tsconfig.server.json
